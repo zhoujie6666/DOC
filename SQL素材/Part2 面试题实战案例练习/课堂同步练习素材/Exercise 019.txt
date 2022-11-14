@@ -1,0 +1,27 @@
+-- Exercise 019
+
+DROP DATABASE IF EXISTS exercise;
+CREATE DATABASE IF NOT EXISTS exercise;
+
+USE exercise;
+
+DROP TABLE IF EXISTS Products;
+
+CREATE TABLE IF NOT EXISTS Products(
+	ProductId INT,
+	Store ENUM('store1', 'store2', 'store3'),
+	Price INT NOT NULL,
+	PRIMARY KEY(ProductId, Price)
+);
+
+INSERT INTO Products
+VALUES
+(0, 'store1', 95),
+(0, 'store3', 105),
+(0, 'store2', 100),
+(1, 'store1', 70),
+(1, 'store3', 80);
+
+SELECT * FROM Products;
+
+-- 查询每个商品在不同商店中的价格

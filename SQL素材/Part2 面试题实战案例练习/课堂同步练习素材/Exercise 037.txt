@@ -1,0 +1,30 @@
+-- Exercise 037
+
+DROP DATABASE IF EXISTS exercise;
+CREATE DATABASE IF NOT EXISTS exercise;
+
+USE exercise;
+
+DROP TABLE IF EXISTS Activity;
+
+CREATE TABLE IF NOT EXISTS Activity (
+	PlayerId INT NOT NULL,
+	DeviceId INT NOT NULL,
+	EventDate Date NOT NULL,
+	GamesPlayed INT NOT NULL
+);
+
+INSERT INTO Activity(PlayerId,DeviceId,EventDate,GamesPlayed)
+VALUES
+(1,2,'2022-03-01', 5),
+(1,2,'2022-03-02', 6),
+(1,3,'2022-03-03', 1),
+(1,3,'2022-05-03', 10),
+(2,1,'2022-03-02', 1),
+(2,4,'2022-07-03', 5),
+(3,1,'2022-03-03', 3),
+(3,1,'2022-03-04', 4);
+
+SELECT * FROM Activity;
+
+-- 统计连续两天登陆的用户百分比

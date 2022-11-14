@@ -1,0 +1,38 @@
+-- Exercise 041
+
+DROP DATABASE IF EXISTS exercise;
+CREATE DATABASE IF NOT EXISTS exercise;
+
+USE exercise;
+
+DROP TABLE IF EXISTS Activities;
+DROP TABLE IF EXISTS Friends;
+
+CREATE TABLE IF NOT EXISTS Activities(
+	Id INT PRIMARY KEY AUTO_INCREMENT,
+	Name VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Friends(
+	Id INT PRIMARY KEY AUTO_INCREMENT,
+	Name VARCHAR(30) NOT NULL,
+	Activity VARCHAR(30) NOT NULL
+);
+
+INSERT INTO Activities(Name)
+VALUES
+('Eating'), ('Singing'), ('Horse Riding');
+
+INSERT INTO Friends(Name, Activity)
+VALUES
+('Jonathan D.', 'Eating'),
+('Jade W.', 'Singing'),
+('Victor J.', 'Singing'),
+('Elvis Q.', 'Eating'),
+('Daniel A.', 'Eating'),
+('Bob B.', 'Horse Riding');
+
+SELECT * FROM Activities;
+SELECT * FROM Friends;
+
+-- 查询参与人数不是最多也不是最少的活动

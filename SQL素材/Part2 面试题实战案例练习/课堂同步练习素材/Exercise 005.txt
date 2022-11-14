@@ -1,0 +1,20 @@
+-- Exercise 005
+
+DROP DATABASE IF EXISTS exercise;
+CREATE DATABASE IF NOT EXISTS exercise;
+
+USE exercise;
+
+DROP TABLE IF EXISTS Employee;
+
+CREATE TABLE IF NOT EXISTS Employee(
+	EmpID INT PRIMARY KEY AUTO_INCREMENT,
+	Email VARCHAR(30) NOT NULL
+);
+
+INSERT INTO Employee(Email) 
+VALUES('Joe@lx.com'),('Henry@lx.com'),('Sam@lx.com'),('Max@lx.com'),('Henry@lx.com');
+
+SELECT * FROM Employee;
+
+-- 删除重复邮件

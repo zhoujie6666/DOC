@@ -1,0 +1,41 @@
+-- Exercise 043
+
+DROP DATABASE IF EXISTS exercise;
+CREATE DATABASE IF NOT EXISTS exercise;
+
+USE exercise;
+
+DROP TABLE IF EXISTS Accounts;
+DROP TABLE IF EXISTS Logins;
+
+CREATE TABLE IF NOT EXISTS Accounts(
+	Id INT PRIMARY KEY,
+	Name VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Logins(
+	Id INT NOT NULL,
+	LoginDate DATE NOT NULL
+);
+
+INSERT INTO Accounts
+VALUES
+(1, 'Winston'),
+(7, 'Jonathan');
+
+INSERT INTO Logins
+VALUES
+(7, '2020-05-30'),
+(1, '2020-05-30'),
+(7, '2020-05-31'),
+(7, '2020-06-01'),
+(7, '2020-06-02'),
+(7, '2020-06-02'),
+(7, '2020-06-03'),
+(1, '2020-06-07'),
+(7, '2020-06-10');
+
+SELECT * FROM Accounts;
+SELECT * FROM Logins;
+
+-- 查询连续登陆5天的账户信息

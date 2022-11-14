@@ -1,0 +1,25 @@
+-- Exercise 038
+
+DROP DATABASE IF EXISTS exercise;
+CREATE DATABASE IF NOT EXISTS exercise;
+
+USE exercise;
+
+DROP TABLE IF EXISTS Seat;
+
+CREATE TABLE IF NOT EXISTS Seat (
+	Id INT NOT NULL,
+	Name VARCHAR(10) NOT NULL
+);
+
+INSERT INTO Seat
+VALUES
+(1, 'Abbot'),
+(2, 'Doris'),
+(3, 'Emerson'),
+(4, 'Green'),
+(5, 'Jeames');
+
+SELECT * FROM Seat;
+
+-- 查询奇偶数同学更换位置的效果

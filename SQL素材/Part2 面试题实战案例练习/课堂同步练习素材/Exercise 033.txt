@@ -1,0 +1,26 @@
+-- Exercise 033
+
+DROP DATABASE IF EXISTS exercise;
+CREATE DATABASE IF NOT EXISTS exercise;
+
+USE exercise;
+
+DROP TABLE IF EXISTS Scores;
+
+CREATE TABLE IF NOT EXISTS Scores(
+	Id INT PRIMARY KEY AUTO_INCREMENT,
+	Score DECIMAL(10, 2) NOT NULL
+);
+
+INSERT INTO Scores(Score)
+VALUES
+(3.50),
+(3.65),
+(4.00),
+(3.85),
+(4.00),
+(3.65);
+
+SELECT * FROM Scores;
+
+-- 针对员工评分进行倒序排序，分数相同，名字并列

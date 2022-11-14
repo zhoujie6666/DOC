@@ -1,0 +1,26 @@
+-- Exercise 032
+
+DROP DATABASE IF EXISTS exercise;
+CREATE DATABASE IF NOT EXISTS exercise;
+
+USE exercise;
+
+DROP TABLE IF EXISTS Employee;
+
+CREATE TABLE IF NOT EXISTS Employee(
+	Id INT PRIMARY KEY,
+	Salary INT NOT NULL
+);
+
+INSERT INTO Employee
+VALUES
+(1, 10000),
+(2, 30000),
+(3, 20000),
+(4, 15000),
+(5, 25000),
+(6, 15000);
+
+SELECT * FROM Employee;
+
+-- 查询薪资第2高的员工

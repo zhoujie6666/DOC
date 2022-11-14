@@ -1,0 +1,33 @@
+-- Exercise 001
+
+DROP DATABASE IF EXISTS exercise;
+CREATE DATABASE IF NOT EXISTS exercise;
+
+USE exercise;
+
+DROP TABLE IF EXISTS Address;
+DROP TABLE IF EXISTS Person;
+
+CREATE TABLE IF NOT EXISTS Person(
+	PersonID INT PRIMARY KEY AUTO_INCREMENT,
+	Name VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Address(
+	AddressID INT PRIMARY KEY AUTO_INCREMENT,
+	PersonID INT NOT NULL,
+	Province VARCHAR(30) NOT NULL,
+	City VARCHAR(30) NOT NULL,
+	FOREIGN KEY(PersonID) REFERENCES Person(PersonID)
+);
+
+INSERT INTO Person(Name) 
+VALUES('ormes'),('nethercutt'),('philipp'),('menefee'),('borkowski');
+
+INSERT INTO Address(PersonID,Province,City)
+VALUES(1,'jiangsu','nanjing'),(2,'zhejiang','hangzhou'),(4,'anhui','hefei');
+
+SELECT * FROM Person;
+SELECT * FROM Address;
+
+-- 查询每个人的信息，无论是否存在地址信息

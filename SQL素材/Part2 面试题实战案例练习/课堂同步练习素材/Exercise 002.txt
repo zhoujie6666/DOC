@@ -1,0 +1,19 @@
+-- Exercise 002
+
+DROP DATABASE IF EXISTS exercise;
+CREATE DATABASE IF NOT EXISTS exercise;
+
+USE exercise;
+
+DROP TABLE IF EXISTS Employee;
+
+CREATE TABLE IF NOT EXISTS Employee(
+	EmpID INT PRIMARY KEY AUTO_INCREMENT,
+	Salary DECIMAL(10,2) NOT NULL
+);
+
+INSERT INTO Employee(Salary) VALUES(25000.00),(15000.00),(23000.00);
+
+SELECT * FROM Employee;
+
+-- 查询薪资第二高的金额

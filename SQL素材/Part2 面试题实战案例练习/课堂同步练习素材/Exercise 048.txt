@@ -1,0 +1,33 @@
+-- Exercise 048
+
+DROP DATABASE IF EXISTS exercise;
+CREATE DATABASE IF NOT EXISTS exercise;
+
+USE exercise;
+
+DROP TABLE IF EXISTS Stocks;
+
+CREATE TABLE IF NOT EXISTS Stocks(
+	StockName VARCHAR(30),
+	Operation ENUM('Buy', 'Sell') NOT NULL,
+	OperationDay INT,
+	Price INT NOT NULL,
+	PRIMARY KEY(StockName, OperationDay)
+);
+
+INSERT INTO Stocks
+VALUES
+('Lee', 'Buy', 1, 1000),
+('Corona Masks', 'Buy', 2, 10),
+('Lee', 'Sell', 5, 9000),
+('Handbags', 'Buy', 17, 30000),
+('Corona Masks', 'Sell', 3, 1010),
+('Corona Masks', 'Buy', 4, 1000),
+('Corona Masks', 'Sell', 5, 500),
+('Corona Masks', 'Buy', 6, 1000),
+('Handbags', 'Sell', 29, 7000),
+('Corona Masks', 'Sell', 10, 10000);
+
+SELECT * FROM Stocks;
+
+-- 查询每个账户的收益和损失

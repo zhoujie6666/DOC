@@ -1,0 +1,45 @@
+-- Exercise 049
+
+DROP DATABASE IF EXISTS exercise;
+CREATE DATABASE IF NOT EXISTS exercise;
+
+USE exercise;
+
+DROP TABLE IF EXISTS Matches;
+DROP TABLE IF EXISTS Teams;
+
+CREATE TABLE IF NOT EXISTS Teams(
+	TeamId INT PRIMARY KEY,
+	TeamName VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Matches(
+	MatchId INT PRIMARY KEY AUTO_INCREMENT,
+	HostTeam INT NOT NULL,
+	GuestTeam INT NOT NULL,
+	HostGoals INT NOT NULL,
+	GuestGoals INT NOT NULL,
+	FOREIGN KEY(GuestTeam) REFERENCES Teams(TeamId),
+	FOREIGN KEY(HostTeam) REFERENCES Teams(TeamId)
+);
+
+INSERT INTO Teams
+VALUES
+(10, 'Lee FC'),
+(20, 'NewYork FC'),
+(30, 'Atlanta FC'),
+(40, 'Chicago FC'),
+(50, 'Toronto FC');
+
+INSERT INTO Matches(HostTeam, GuestTeam, HostGoals, GuestGoals)
+VALUES
+(10, 20, 3, 0),
+(30, 10, 2, 2),
+(10, 50, 5, 1),
+(20, 30, 1, 0),
+(50, 30, 1, 0);
+
+SELECT * FROM Teams;
+SELECT * FROM Matches;
+
+-- 查询各个团队的得分（胜，3分，平，1分，负，0分）

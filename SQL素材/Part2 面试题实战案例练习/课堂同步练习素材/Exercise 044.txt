@@ -1,0 +1,60 @@
+-- Exercise 044
+
+DROP DATABASE IF EXISTS exercise;
+CREATE DATABASE IF NOT EXISTS exercise;
+
+USE exercise;
+
+DROP TABLE IF EXISTS Orders;
+DROP TABLE IF EXISTS Customers;
+DROP TABLE IF EXISTS Products;
+
+CREATE TABLE IF NOT EXISTS Customers(
+	CustomerId INT PRIMARY KEY AUTO_INCREMENT,
+	CustomerName VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Products(
+	ProductId INT PRIMARY KEY AUTO_INCREMENT,
+	ProductName VARCHAR(30) NOT NULL,
+	Price INT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Orders(
+	OrderId INT PRIMARY KEY AUTO_INCREMENT,
+	OrderDate DATE NOT NULL,
+	CustomerId INT NOT NULL,
+	ProductId INT NOT NULL,
+	FOREIGN KEY(CustomerId) REFERENCES Customers(CustomerId),
+	FOREIGN KEY(ProductId) REFERENCES Products(ProductId)
+);
+
+INSERT INTO Customers(CustomerName)
+VALUES
+('Alice'), ('Bob'), ('Tom'), ('Jerry'), ('John');
+
+INSERT INTO Products(ProductName, Price)
+VALUES
+('keyboard', 120),
+('mouse', 80),
+('screen', 600),
+('hard disk', 450);
+
+INSERT INTO Orders(OrderDate, CustomerId, ProductId)
+VALUES
+('2020-07-31', 1, 1),
+('2020-07-30', 2, 2),
+('2020-08-29', 3, 3),
+('2020-07-29', 4, 1),
+('2020-06-10', 1, 2),
+('2020-08-01', 2, 1),
+('2020-08-01', 3, 3),
+('2020-08-03', 1, 2),
+('2020-08-07', 2, 3),
+('2020-07-15', 1, 2);
+
+SELECT * FROM Customers;
+SELECT * FROM Products;
+SELECT * FROM Orders;
+
+-- 查询每位客户最高频订购的商品

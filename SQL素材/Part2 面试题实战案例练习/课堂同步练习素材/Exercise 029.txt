@@ -1,0 +1,44 @@
+-- Exercise 029
+
+DROP DATABASE IF EXISTS exercise;
+CREATE DATABASE IF NOT EXISTS exercise;
+
+USE exercise;
+
+DROP TABLE IF EXISTS Employee;
+DROP TABLE IF EXISTS Department;
+
+CREATE TABLE IF NOT EXISTS Department(
+	Id INT PRIMARY KEY,
+	Name VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Employee(
+	Id INT PRIMARY KEY,
+	Name VARCHAR(30) NOT NULL,
+	DepartmentId INT NOT NULL
+);
+
+INSERT INTO Department
+VALUES
+(1, 'Electical Engineering'),
+(7, 'Computer Engineering'),
+(13, 'Bussiness Administration');
+
+INSERT INTO Employee
+VALUES
+(23, 'Alice', 1),
+(1, 'Bob', 7),
+(5, 'Jennifer', 13),
+(2, 'John', 14),
+(4, 'Jasmine', 77),
+(3, 'Steve', 74),
+(6, 'Luis', 1),
+(8, 'Jonathan', 7),
+(7, 'Daiana', 33),
+(11, 'Madelynn', 1);
+
+SELECT * FROM Department;
+SELECT * FROM Employee;
+
+-- 查询所分配部门已不存在的员工信息

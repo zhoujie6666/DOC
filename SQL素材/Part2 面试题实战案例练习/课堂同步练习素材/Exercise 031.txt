@@ -1,0 +1,27 @@
+-- Exercise 031
+
+DROP DATABASE IF EXISTS exercise;
+CREATE DATABASE IF NOT EXISTS exercise;
+
+USE exercise;
+
+DROP TABLE IF EXISTS Orders;
+
+CREATE TABLE IF NOT EXISTS Orders(
+	OrderNumber INT PRIMARY KEY,
+	CustomerNumber INT NOT NULL
+);
+
+INSERT INTO Orders
+VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 3),
+(5, 3),
+(6, 4),
+(7, 2);
+
+SELECT * FROM Orders;
+
+-- 查询订单量最多的买家

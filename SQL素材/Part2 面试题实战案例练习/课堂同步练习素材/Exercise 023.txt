@@ -1,0 +1,48 @@
+-- Exercise 023
+
+DROP DATABASE IF EXISTS exercise;
+CREATE DATABASE IF NOT EXISTS exercise;
+
+USE exercise;
+
+DROP TABLE IF EXISTS Rides;
+DROP TABLE IF EXISTS Users;
+
+CREATE TABLE IF NOT EXISTS Users(
+	Id INT PRIMARY KEY,
+	Name VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Rides(
+	Id INT PRIMARY KEY AUTO_INCREMENT,
+	UserId INT NOT NULL,
+	Distance INT NOT NULL,
+	FOREIGN KEY(UserId) REFERENCES Users(Id)
+);
+
+INSERT INTO Users
+VALUES
+(1, 'Alice'),
+(2, 'Bob'),
+(3, 'Alex'),
+(4, 'Donald'),
+(7, 'Lee'),
+(13, 'Jonathan'),
+(19, 'Elvis');
+
+INSERT INTO Rides(UserId, Distance)
+VALUES
+(1, 120),
+(2, 317),
+(3, 222),
+(7, 100),
+(13, 312),
+(19, 50),
+(7, 120),
+(19, 400),
+(7, 230);
+
+SELECT * FROM Rides;
+SELECT * FROM Users;
+
+-- 查询每位旅行者的里程值

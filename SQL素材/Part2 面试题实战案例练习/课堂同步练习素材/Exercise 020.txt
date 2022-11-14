@@ -1,0 +1,26 @@
+-- Exercise 020
+
+DROP DATABASE IF EXISTS exercise;
+CREATE DATABASE IF NOT EXISTS exercise;
+
+USE exercise;
+
+DROP TABLE IF EXISTS Products;
+
+CREATE TABLE IF NOT EXISTS Products(
+	ProductId INT PRIMARY KEY,
+	LowFats ENUM('Y', 'N'),
+	Recyclable ENUM('Y', 'N')
+);
+
+INSERT INTO Products
+VALUES
+(0, 'Y', 'N'),
+(1, 'Y', 'Y'),
+(2, 'N', 'Y'),
+(3, 'Y', 'Y'),
+(4, 'N', 'N');
+
+SELECT * FROM Products;
+
+-- 查询不符合低脂且可回收标准的产品

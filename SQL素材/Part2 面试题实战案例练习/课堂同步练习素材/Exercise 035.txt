@@ -1,0 +1,39 @@
+-- Exercise 035
+
+DROP DATABASE IF EXISTS exercise;
+CREATE DATABASE IF NOT EXISTS exercise;
+
+USE exercise;
+
+DROP TABLE IF EXISTS Department;
+DROP TABLE IF EXISTS Employee;
+
+CREATE TABLE IF NOT EXISTS Department(
+	Id INT PRIMARY KEY AUTO_INCREMENT,
+	Name VARCHAR(10) NOT NULL
+);
+
+INSERT INTO Department(Name)
+VALUES
+('IT'),('Sales');
+
+CREATE TABLE IF NOT EXISTS Employee(
+	Id INT PRIMARY KEY AUTO_INCREMENT,
+	Name VARCHAR(10) NOT NULL,
+	Salary INT NOT NULL,
+	DepartmentId INT NOT NULL,
+	FOREIGN KEY(DepartmentId) REFERENCES Department(Id)
+);
+
+INSERT INTO Employee(Name, Salary, DepartmentId)
+VALUES
+('Joe', 70000, 1),
+('Jim', 90000, 1),
+('Henry', 80000, 2),
+('Sam', 60000, 2),
+('Max', 90000, 1);
+
+SELECT * FROM Department;
+SELECT * FROM Employee;
+
+-- 查询各个部门最高薪资的员工

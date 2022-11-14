@@ -1,0 +1,26 @@
+-- Exercise 003
+
+DROP DATABASE IF EXISTS exercise;
+CREATE DATABASE IF NOT EXISTS exercise;
+
+USE exercise;
+
+DROP TABLE IF EXISTS Employee;
+
+CREATE TABLE IF NOT EXISTS Employee(
+	EmpID INT PRIMARY KEY AUTO_INCREMENT,
+	Name VARCHAR(30) NOT NULL,
+	Salary DECIMAL(10,2) NOT NULL,
+	ManagerID INT
+);
+
+INSERT INTO Employee(Name, Salary, ManagerID) 
+VALUES
+('Joe', 25000.00, 3),
+('Henry', 23000.00, 4),
+('Sam', 28000.00, NULL),
+('Max', 20000.00, NULL);
+
+SELECT * FROM Employee;
+
+-- 查询高于自身经理薪资的职员姓名

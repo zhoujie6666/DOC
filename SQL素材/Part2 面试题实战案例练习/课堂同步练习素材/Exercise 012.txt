@@ -1,0 +1,40 @@
+-- Exercise 012
+
+DROP DATABASE IF EXISTS exercise;
+CREATE DATABASE IF NOT EXISTS exercise;
+
+USE exercise;
+
+DROP TABLE IF EXISTS Salary;
+
+CREATE TABLE IF NOT EXISTS Salary(
+	Id INT PRIMARY KEY AUTO_INCREMENT,
+	Name VARCHAR(30) NOT NULL,
+	Sex VARCHAR(1) NOT NULL,
+	Salary INT NOT NULL
+);
+
+INSERT INTO Salary(Name, Sex, Salary)
+VALUES
+('A', 'm', 2500),
+('B', 'f', 1500),
+('C', 'm', 5500),
+('D', 'f', 500);
+
+SELECT * FROM Salary;
+
+-- 将Salary表中的f更新为m，m更新为f
+
+UPDATE Salary
+SET Sex = IF(Sex = 'm', 'f', 'm');
+
+UPDATE Salary
+SET Sex = 
+(
+	CASE Sex
+		WHEN 'm' THEN 'f'
+		ELSE 'm'
+	END
+);
+
+SELECT * FROM Salary;

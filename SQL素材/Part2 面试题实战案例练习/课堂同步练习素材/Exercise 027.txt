@@ -1,0 +1,23 @@
+-- Exercise 027
+
+DROP DATABASE IF EXISTS exercise;
+CREATE DATABASE IF NOT EXISTS exercise;
+
+USE exercise;
+
+DROP TABLE IF EXISTS Triangle;
+
+CREATE TABLE IF NOT EXISTS Triangle(
+	X INT NOT NULL,
+	Y INT NOT NULL,
+	Z INT NOT NULL
+);
+
+INSERT INTO Triangle
+VALUES
+(13, 15, 30),
+(10, 20, 15);
+
+SELECT * FROM Triangle;
+
+-- 判定能够组成三角形的数字集合

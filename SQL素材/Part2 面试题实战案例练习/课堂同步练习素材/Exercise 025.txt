@@ -1,0 +1,39 @@
+-- Exercise 025
+
+DROP DATABASE IF EXISTS exercise;
+CREATE DATABASE IF NOT EXISTS exercise;
+
+USE exercise;
+
+DROP TABLE IF EXISTS Bonus;
+DROP TABLE IF EXISTS Employee;
+
+CREATE TABLE IF NOT EXISTS Employee(
+	EmpId INT PRIMARY KEY AUTO_INCREMENT,
+	Name VARCHAR(30) NOT NULL,
+	Supervisor INT,
+	Salary INT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Bonus(
+	EmpId INT NOT NULL,
+	Bonus INT NOT NULL,
+	FOREIGN KEY(EmpId) REFERENCES Employee(EmpId)
+);
+
+INSERT INTO Employee
+VALUES
+(1, 'John', 3, 1000),
+(2, 'Dan', 3, 2000),
+(3, 'Brad', null, 4000),
+(4, 'Thomas', 3, 4000);
+
+INSERT INTO Bonus
+VALUES
+(2, 500),
+(4, 2000);
+
+SELECT * FROM Employee;
+SELECT * FROM Bonus;
+
+-- 查询奖金金额低于1000的员工以及没有奖金的员工信息

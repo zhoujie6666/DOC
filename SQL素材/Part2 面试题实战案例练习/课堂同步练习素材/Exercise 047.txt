@@ -1,0 +1,65 @@
+-- Exercise 047
+
+DROP DATABASE IF EXISTS exercise;
+CREATE DATABASE IF NOT EXISTS exercise;
+
+USE exercise;
+
+DROP TABLE IF EXISTS Calls;
+DROP TABLE IF EXISTS Person;
+DROP TABLE IF EXISTS Country;
+
+CREATE TABLE IF NOT EXISTS Person(
+	Id INT PRIMARY KEY,
+	Name VARCHAR(30) NOT NULL,
+	PhoneNumber VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Country(
+	Name VARCHAR(30) PRIMARY KEY,
+	CountryCode VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Calls(
+	CallerId INT NOT NULL,
+	CalleeId INT NOT NULL,
+	Duration INT NOT NULL,
+	FOREIGN KEY(CallerId) REFERENCES Person(Id),
+	FOREIGN KEY(CalleeId) REFERENCES Person(Id)
+);
+
+INSERT INTO Person
+VALUES
+(3, 'Jonathan', '051-1234567'),
+(12, 'Elvis', '051-7654321'),
+(1, 'Moncef', '212-1234567'),
+(2, 'Maroua', '212-6523651'),
+(7, 'Meir', '972-1234567'),
+(9, 'Rachel', '972-0011100');
+
+INSERT INTO Country
+VALUES
+('peru', '051'),
+('Israel', '972'),
+('Morocco', '212'),
+('Germany', '049'),
+('Ethiopia', '251');
+
+INSERT INTO Calls
+VALUES
+(1, 9, 33),
+(2, 9, 4),
+(1, 2, 59),
+(3, 12, 102),
+(3, 12, 330),
+(12, 3, 5),
+(7, 9, 13),
+(7, 1, 3),
+(9, 7, 1),
+(1, 7, 7);
+
+SELECT * FROM Person;
+SELECT * FROM Country;
+SELECT * FROM Calls;
+
+-- 查询平均通话时间超过全球平均通话时长的国家

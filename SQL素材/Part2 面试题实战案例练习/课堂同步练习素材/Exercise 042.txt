@@ -1,0 +1,59 @@
+-- Exercise 042
+
+DROP DATABASE IF EXISTS exercise;
+CREATE DATABASE IF NOT EXISTS exercise;
+
+USE exercise;
+
+DROP TABLE IF EXISTS Customers;
+DROP TABLE IF EXISTS Contacts;
+
+CREATE TABLE IF NOT EXISTS Customers(
+	CustomerId INT PRIMARY KEY,
+	CustomerName VARCHAR(30) NOT NULL,
+	Email VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Contacts(
+	UserId INT,
+	ContactName VARCHAR(30) NOT NULL,
+	ContactEmail VARCHAR(30),
+	PRIMARY KEY(UserId, ContactEmail)
+);
+
+CREATE TABLE IF NOT EXISTS Invoices(
+	InvoiceId INT PRIMARY KEY,
+	Price INT NOT NULL,
+	UserId INT NOT NULL
+);
+
+INSERT INTO Customers
+VALUES
+(1, 'Alice', 'alice@lx.com'),
+(2, 'Bob', 'bob@lx.com'),
+(13, 'John', 'john@lx.com'),
+(6, 'Alex', 'alex@lx.com');
+
+INSERT INTO Contacts
+VALUES
+(1, 'Bob', 'bob@lx.com'),
+(1, 'John', 'john@lx.com'),
+(1, 'Jal', 'jal@lx.com'),
+(2, 'Omar', 'omar@lx.com'),
+(2, 'Meir', 'meir@lx.com'),
+(6, 'Alice', 'alice@lx.com');
+
+INSERT INTO Invoices
+VALUES
+(77, 100, 1),
+(88, 200, 1),
+(99, 300, 2),
+(66, 400, 2),
+(55, 500, 13),
+(44, 60, 6);
+
+SELECT * FROM Customers;
+SELECT * FROM Contacts;
+SELECT * FROM Invoices;
+
+-- 查询账单信息，包括账单号，客户姓名，账单价格， 联系人数量， 信任的联系人数量

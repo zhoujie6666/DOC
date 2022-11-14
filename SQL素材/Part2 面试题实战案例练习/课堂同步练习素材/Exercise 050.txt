@@ -1,0 +1,33 @@
+-- Exercise 050
+
+DROP DATABASE IF EXISTS exercise;
+CREATE DATABASE IF NOT EXISTS exercise;
+
+USE exercise;
+
+DROP TABLE IF EXISTS Salaries;
+
+CREATE TABLE IF NOT EXISTS Salaries(
+	CompanyId INT,
+	EmployeeId INT,
+	EmployeeName VARCHAR(30) NOT NULL,
+	Salary INT NOT NULL,
+	PRIMARY KEY(CompanyId, EmployeeId)
+);
+
+INSERT INTO Salaries
+VALUES
+(1, 1, 'Tony', 2000),
+(1, 2, 'Pronub', 21300),
+(1, 3, 'Tyrrox', 10800),
+(2, 1, 'Pam', 300),
+(2, 7, 'Bassem', 450),
+(2, 9, 'Hermione', 700),
+(3, 7, 'Bocaben', 100),
+(3, 2, 'Ognjen', 2200),
+(3, 13, 'Nyancat', 3300),
+(3, 15, 'Morninngcat', 7777);
+
+SELECT * FROM Salaries;
+
+-- 计算各个员工的税后工资（公司最高薪资，1000元以下，0%，1000~10000元，24%，10000元以上，49%）

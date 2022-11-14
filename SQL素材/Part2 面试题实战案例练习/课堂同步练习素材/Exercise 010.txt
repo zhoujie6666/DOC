@@ -1,0 +1,29 @@
+-- Exercise 010
+
+DROP DATABASE IF EXISTS exercise;
+CREATE DATABASE IF NOT EXISTS exercise;
+
+USE exercise;
+
+DROP TABLE IF EXISTS Courses;
+
+CREATE TABLE IF NOT EXISTS Courses (
+	Student CHAR(1) NOT NULL,
+	Class VARCHAR(10) NOT NULL
+);
+	
+INSERT INTO Courses
+VALUES
+('A', 'Math'),
+('B', 'English'),
+('C', 'Math'),
+('D', 'Biology'),
+('E', 'Math'),
+('F', 'Computer'),
+('G', 'Math'),
+('H', 'Math'),
+('I', 'Math');
+
+SELECT * FROM Courses;
+
+-- 列出学生数超过5个的班级

@@ -1,0 +1,40 @@
+-- Exercise 039
+
+DROP DATABASE IF EXISTS exercise;
+CREATE DATABASE IF NOT EXISTS exercise;
+
+USE exercise;
+
+DROP TABLE IF EXISTS Sales;
+DROP TABLE IF EXISTS Product;
+
+CREATE TABLE IF NOT EXISTS Product (
+	ProductId INT PRIMARY KEY,
+	ProductName VARCHAR(10) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Sales (
+	SaleId INT PRIMARY KEY,
+	ProductId INT NOT NULL,
+	Year INT NOT NULL,
+	Quantity INT NOT NULL,
+	Price INT NOT NULL,
+	FOREIGN KEY(ProductId) REFERENCES Product(ProductId)
+);
+
+INSERT INTO Product
+VALUES
+(100, 'Nokia'),
+(200, 'Apple'),
+(300, 'Samsung');
+
+INSERT INTO Sales
+VALUES
+(1, 100, 2008, 10, 5000),
+(2, 100, 2009, 12, 5000),
+(7, 200, 2011, 15, 9000);
+
+SELECT * FROM Product;
+SELECT * FROM Sales;
+
+-- 查询每个商品第一年的销售信息

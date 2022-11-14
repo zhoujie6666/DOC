@@ -1,0 +1,27 @@
+-- Exercise 018
+
+DROP DATABASE IF EXISTS exercise;
+CREATE DATABASE IF NOT EXISTS exercise;
+
+USE exercise;
+
+DROP TABLE IF EXISTS Department;
+
+CREATE TABLE IF NOT EXISTS Department(
+	Id INT,
+	Month VARCHAR(3),
+	Revenue INT NOT NULL,
+	PRIMARY KEY(Id, Month)
+);
+
+INSERT INTO Department
+VALUES
+(1, 'Jan', 8000),
+(2, 'Jan', 9000),
+(3, 'Feb', 10000),
+(1, 'Feb', 7000),
+(1, 'Mar', 6000);
+
+SELECT * FROM Department;
+
+-- 转换Department表的数据展示格式

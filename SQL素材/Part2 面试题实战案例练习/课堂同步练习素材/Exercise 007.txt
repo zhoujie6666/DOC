@@ -1,0 +1,25 @@
+-- Exercise 007
+
+DROP DATABASE IF EXISTS exercise;
+CREATE DATABASE IF NOT EXISTS exercise;
+
+USE exercise;
+
+DROP TABLE IF EXISTS Weather;
+
+CREATE TABLE IF NOT EXISTS Weather (
+	Id INT PRIMARY KEY AUTO_INCREMENT,
+	RecordDate DATE NOT NULL,
+	Temperature INT NOT NULL
+);
+
+INSERT INTO Weather(RecordDate,Temperature)
+VALUES
+('2022-01-01', 10),
+('2022-01-02', 15),
+('2022-01-03', 12),
+('2022-01-04', 20);
+
+SELECT * FROM Weather;
+
+-- 查询比前一天气温高的日期
